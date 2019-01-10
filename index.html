@@ -2,14 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" /> -->
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0">  -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=Edge"> -->
+    <!-- <meta name="description" content="唐仁国际是大唐财富旗下投资移民与家庭规划高端品牌，为客户提供尊享、私密、专业的海外规划服务。为有全球化需求的高净值人群提供安全、可靠的海外身份及财富管理解决方案。业务涵盖：希腊移民，美国移民，圣基茨和尼维斯移民，葡萄牙移民，澳洲移民，欧洲移民，海外房产，海外教育等。移民去哪儿？来唐仁国际尊享专业移民顾问服务！">
+    <meta name="Keywords" content="移民，希腊移民，美国移民，圣基茨和尼维斯移民，葡萄牙移民，海外房产，唐仁国际，大唐财富"> -->
     <title>唐仁国际</title>
-    <link rel="stylesheet" href="static/css/base.css">
-    <link rel="stylesheet" href="static/css/common.css">
-    <link rel="stylesheet" href="static/css/loanresult.css">
-    <link rel="stylesheet" href="static/css/app.css">
-    <link rel="stylesheet" href="static/base_1.css">
-    <link rel="icon" href="./static/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/base.css?updet=1">
+    <link rel="stylesheet" href="static/css/common.css?updet=1">
+    <link rel="stylesheet" href="static/css/loanresult.css?updet=1">
+    <link rel="stylesheet" href="static/css/app.css?updet=1">
+    <link rel="stylesheet" href="static/base_1.css?updet=1">
+    <link rel="icon" href="./static/img/favicon.ico?updet=1" type="image/x-icon">
     <style>
     dl, ol, ul{
       margin-bottom:0!important;
@@ -17,10 +21,12 @@
     </style>
   </head>
   <body>
+     
     <div id="app"></div>
     <div>
     <button id="btn" class="zhiCustomBtn" ></button>
     </div>
+    <div style="display:none;"> <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273126090'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1273126090' type='text/javascript'%3E%3C/script%3E"));</script></div>
     <!-- built files will be auto injected -->
     <style>
        .zhiCustomBtn{
@@ -41,7 +47,7 @@
       }
       </style>
    <script src='static/js/jquery.js'></script>
-   <script src='static/js/hover.js'></script>
+   <!-- <script src='static/js/hover.js'></script> -->
    <script src = "https://cdn.polyfill.io/v2/polyfill.min.js"></script>
    <script src="https://www.sobot.com/chat/frame/js/entrance.js?sysNum=800fcb3a85a54c73b1cd5df006b9be0c" class="zhiCustomBtn"", id="zhichiScript" data-args="������1=����ֵ1&������2=����ֵ2"></script> 
    
@@ -72,37 +78,60 @@
             $('.maoUl').removeClass('fixmao');
           }
         
-          if(scrollTop>=450){
-            $('.maoUl li').removeClass('active');
-            $('#nav1').addClass('active');
-          }
-          var top2=$('.nav2').offset().top
-          if(scrollTop>=top2){
-            console.log('2222222222')
-            $('.maoUl li').removeClass('active');
-            $('#nav2').addClass('active');
-          }
-          var top3=$('.nav3').offset().top-100
+          if($('.nav4').length>0){
+              var top4=$('.nav4').offset().top-100
+              if(scrollTop>=top4){
+                $('.maoUl li').removeClass('active');
+                $('#nav4').addClass('active');
+                return;
+              }
+           }
+           var top3=$('.nav3').offset().top-100
            if(scrollTop>=top3){
              $('.maoUl li').removeClass('active');
              $('#nav3').addClass('active');
+             return;
            }
-           var top4=$('.nav4').offset().top-100
-           if(scrollTop>=top4){
-             $('.maoUl li').removeClass('active');
-             $('#nav4').addClass('active');
-           }
+           var top2=$('.nav2').offset().top
+          if(scrollTop>=top2){
+            $('.maoUl li').removeClass('active');
+            $('#nav2').addClass('active');
+            return;
+          }
+
+          if(scrollTop<=450){
+            $('.maoUl li').removeClass('active');
+            $('#nav1').addClass('active');
+            return;
+          }
+        
+        
+          
+         
+           
           
           
       })
 
-      $('#app').on('click','.maoUl li',function(){
-        $('.maoUl li').removeClass('active')
+      $('#app').on('click','.maoUl p',function(){
+        $('.maoUl p').removeClass('active')
         $(this).addClass('active');//.siblings().removeClass('active')
+        
+      })
+      $('#app').on('click','.maoUl li',function(){
+        console.log($('.maoUl li').length+'.maoUl li');
+        $('.maoUl li').removeClass('active')
+        //$(this).addClass('active');//.siblings().removeClass('active')
+        console.log($(this).html());
+       // console.log($(this).get(0).className);
+        var mao =$(this).attr('mao');
+        $("body,html").scrollTop($('#'+mao).offset().top);
+        return; 
         
       })
   }
     </script>
+   
   </body>
   
 </html>

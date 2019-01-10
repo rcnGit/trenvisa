@@ -6,6 +6,9 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import utils from '../static/js/utils.js'
+import 'babel-polyfill'
+import MetaInfo from 'vue-meta-info'
+
 // 
 
 import $ from 'jquery'
@@ -14,6 +17,7 @@ import $ from 'jquery'
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(utils) 
+Vue.use(MetaInfo)
 /* eslint-disable no-new */
 router.beforeEach((to, from, next) => {
   /* 路由发生变化修改页面title */

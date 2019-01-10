@@ -1,21 +1,21 @@
 <template>
-    <div class='footer'>
+    <div class='footer' style='position: relative;top: -70px;background: #25242a;'>
         <!-- 底部预约 -->
         <div class="footYuYue">
-            <p>全方位定制移民规划，专属移民顾问第一时间为您回电</p>
+            <p>全方位定制专属移民规划，资深顾问一对一全程服务</p>
             <div class='inputBox'>
                 
                 <el-form ref="appointForm" :model="appointForm" status-icon :rules="rules2" label-width="80px">
                     <el-form-item label="" prop="countryId">
                         <el-select v-model="appointForm.countryId" placeholder="意向国家">
-                              <el-option v-for='item in countryList' :label="item.countryName" :value="item.countryId"></el-option> 
+                              <el-option v-for='item in countryList' :label="item.label" :value="item.value"></el-option> 
                         </el-select>
                     </el-form-item>
                     <el-form-item label="" prop="name">
-                        <el-input v-model="appointForm.name" placeholder="输入您的姓名"></el-input>
+                        <el-input v-model="appointForm.name" placeholder="输入您的姓名" maxlength="20"></el-input>
                     </el-form-item>
                     <el-form-item label="" prop="phone">
-                        <el-input v-model="appointForm.phone" placeholder="输入您的手机号"></el-input>
+                        <el-input v-model="appointForm.phone" placeholder="输入您的手机号" maxlength="11"></el-input>
                     </el-form-item>
                     <el-form-item >
                         <!-- <button class='btnHoverZ' @click="submitForm('appointForm')" :disabled="isdisabledbtn" type="primary">立即预约</button> -->
@@ -32,7 +32,7 @@
         <div class="f-copyright" style="position: relative; top: 0px;height:175px;">
             <div class="grid-1200 footerHolder">
                 <div class="footer-nav">
-                    <p style='margin-bottom:34px;margin-top: 45px;'><span>全国服务热线：010-52705440</span><a><button class="zhiCustomBtn" style='position: static;width:76px;height:19px;background:#25242a!important;color:#fff!important;margin-left:30px;'><img src='./img/kefufoot.png' style='vertical-align: -4px;margin-right:8px;'/><span>在线客服</span></button></a><span style='margin:0 10px;'>|</span><a href='mailto:vip@datangwealth.com'><img src='./img/emailfoot.png' style='vertical-align: -2px;margin-right:8px;margin-left: 5px;'/><span>客服邮箱</span></a></p>
+                    <p style='margin-bottom:34px;margin-top: 45px;'><span>全国服务热线：010-53520719</span><a><button class="zhiCustomBtn" style='position: static;width:83px;height:19px;background:#25242a!important;color:#fff!important;margin-left:30px;'><img src='./img/kefufoot.png' style='vertical-align: -4px;margin-right:8px;'/><span>在线客服</span></button></a><span style='margin:0 10px;'>|</span><a href='mailto:vip@datangwealth.com'><img src='./img/emailfoot.png' style='vertical-align: -2px;margin-right:8px;margin-left: 5px;'/><span>客服邮箱</span></a></p>
                     <p>
                         <a @click="openhref('about')">关于唐仁国际</a><span class="footer-nav-cut">|</span>
                         <a href="//www.datangwealth.com/" target="_blank" >关于大唐财富</a><span class="footer-nav-cut">|</span>
@@ -68,16 +68,16 @@ export default {
             var validPhone=(rule, value,callback)=>{
                 if (!value){
                 //this.warnShow2= true
-                callback(new Error('请输入电话号码'))
+                callback(new Error('请输入您的手机号'))
                 }else  if (!isValidMobile(value)){
-                callback(new Error('请输入正确的11位手机号码'))
+                callback(new Error('手机号需为11位数字'))
                 }else {
                 callback()
                 }
             }
             var validcontry=(rule, value,callback)=>{
                 if (!value){
-                    callback(new Error('请选择国家'))
+                    callback(new Error('请选择意向国家'))
                 }
                 else {
                     callback()
@@ -85,9 +85,9 @@ export default {
             }
             var validateName = (rule, value, callback) => {
                 if (value =='') {
-                callback(new Error('请输入姓名'));
+                callback(new Error('请输入您的真实姓名'));
                 }else if(isValidName(value)){
-                    callback(new Error('请输入正确的姓名'));
+                    callback(new Error('姓名需为中文字符'));
                 }else{
                 callback();
                 }
@@ -100,8 +100,8 @@ export default {
                 countryId:'',
             },
              countryList:[{
-                 countryName:'中国',
-                 countryId:'123',
+                 label:'中国',
+                 value:'123',
              }],
             isdisabledbtn:false,//可以提交
             rules2: {
@@ -123,12 +123,13 @@ export default {
     methods:{
         getCountry:function(){
             var that=this;
-            var obj={"BEGIN_NUM":"1","CHANNEL":"1","END_NUM":"","TYPE":"3"}
-            axios.post('/trpch/trcrm/country/queryCountryList',obj)
+            var obj={"TYPE":"TR_NATIONALITY","VALUE":""}
+            //var obj={"BEGIN_NUM":"1","CHANNEL":"1","END_NUM":"","TYPE":"1"}
+            axios.post('/trpch/trcrm/dict/querydictList',obj)
             .then(res=>{
                 var data=res.data;
                 if(data.isSuccess==1){
-                    that.countryList=data.list;
+                    that.countryList=data.dictList;
                     //console.log('=====');
                     //console.log(that.countryList);
                 }     
@@ -167,6 +168,9 @@ export default {
     //       loginPwd: that.appointForm.countryId,
     //       agentCom:that.appointForm.phone,
     //   })
+        that.appointForm.name=''
+        that.appointForm.phone=''
+        that.appointForm.countryId=''
         axios.post('/trpch/trcrm/apppointment/insertApporint',postData).then(response => {   
             that.isdisabledbtn = false
             //console.log(response.data);

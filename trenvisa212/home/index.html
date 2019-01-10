@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>唐仁国际</title><link rel="stylesheet" href="static/css/base.css?updet=1"><link rel="stylesheet" href="static/css/common.css?updet=1"><link rel="stylesheet" href="static/css/loanresult.css?updet=1"><link rel="stylesheet" href="static/css/app.css?updet=1"><link rel="stylesheet" href="static/base_1.css?updet=1"><link rel="icon" href="./static/img/favicon.ico?updet=1" type="image/x-icon"><style>dl, ol, ul{
+      margin-bottom:0!important;
+    }</style><link href="./static/css/app.35f2b2614f06db84d1855dd1837de599.css" rel="stylesheet"><style></style></head><body><div id="app"><!----></div><div><button id="btn" class="zhiCustomBtn"></button></div><div style="display:none;"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273126090'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1273126090' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_1273126090"><a href="https://www.cnzz.com/stat/website.php?web_id=1273126090" target="_blank" title="站长统计">站长统计</a></span><script src=" http://s22.cnzz.com/z_stat.php?id=1273126090" type="text/javascript"></script><script src="http://c.cnzz.com/core.php?web_id=1273126090&amp;t=z" charset="utf-8" type="text/javascript"></script></div><style>.zhiCustomBtn{
+        position: fixed;
+        top: 392px!important;
+        opacity: 1!important;
+        z-index: 2000!important;
+        right: 5px;
+        width: 70px;
+        height: 70px;
+        background: url(static/img/zixun.png) no-repeat #f4d1b2!important;
+        outline: none!important;
+        cursor: pointer;
+        border-radius: 5px;
+      } 
+      .zhiCustomBtn:hover{
+	      background: url(static/img/zixun_sel.png) no-repeat #f4d1b2!important;
+      }</style><script src="static/js/jquery.js"></script><script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script><script src="https://www.sobot.com/chat/frame/js/entrance.js?sysNum=800fcb3a85a54c73b1cd5df006b9be0c" class="zhiCustomBtn" ,="" id="zhichiScript" data-args="������1=����ֵ1&amp;������2=����ֵ2"></script>&nbsp;<script>window.onload=function(){
+     //初始化智齿咨询组件实例
+    var zhiManager = (getzhiSDKInstance());
+    //再调用load方法
+    zhiManager.on("load", function() {
+    zhiManager.initBtnDOM();
+    });
+    zhiManager.set('customBtn', 'true');
+    zhiManager.set('customMargin',250);
+    zhiManager.set('color','b09a7d');
+    //alert($('#btn').length)
+    //$('.zhiCustomBtn').click();
+
+     window.addEventListener('scroll',function(){ 
+       if($('.maoUl').length==0){
+         return;
+       }
+       var scrollTop=document.documentElement.scrollTop;
+          if(document.documentElement.scrollTop>300){
+              
+              $('.maoUl').addClass('fixmao');
+              // $.res.backTop.style.opacity=1;
+          }else{
+            $('.maoUl').removeClass('fixmao');
+          }
+        
+          if(scrollTop<=450){
+            $('.maoUl li').removeClass('active');
+            $('#nav1').addClass('active');
+            return;
+          }
+          var top2=$('.nav2').offset().top
+          if(scrollTop>=top2){
+            $('.maoUl li').removeClass('active');
+            $('#nav2').addClass('active');
+            
+          }
+          var top3=$('.nav3').offset().top-100
+           if(scrollTop>=top3){
+             $('.maoUl li').removeClass('active');
+             $('#nav3').addClass('active');
+             
+           }
+           if($('.nav4').length>0){
+              var top4=$('.nav4').offset().top-100
+              if(scrollTop>=top4){
+                $('.maoUl li').removeClass('active');
+                $('#nav4').addClass('active');
+               
+              }
+           }
+           
+          
+          
+      })
+
+      $('#app').on('click','.maoUl p',function(){
+        $('.maoUl p').removeClass('active')
+        $(this).addClass('active');//.siblings().removeClass('active')
+        
+      })
+      $('#app').on('click','.maoUl li',function(){
+        console.log($('.maoUl li').length+'.maoUl li');
+        $('.maoUl li').removeClass('active')
+        $(this).addClass('active');//.siblings().removeClass('active')
+        console.log($(this).html());
+        console.log($(this).get(0).className);
+        var mao =$(this).attr('mao');
+        $("body,html").scrollTop($('#'+mao).offset().top);
+        return; 
+        
+      })
+  }</script><script type="text/javascript" src="./static/js/manifest.3ad1d5771e9b13dbdad2.js"></script><script type="text/javascript" src="./static/js/vendor.4585b21aaf60cfd26841.js"></script><script type="text/javascript" src="./static/js/app.ce6ddf5ba2b476f44d29.js"></script><div id="zhichiBtnBox" style="position: fixed; z-index: 2147483583; box-shadow: rgba(15, 66, 76, 0.25) 0px 0px 14px 0px; width: 60px; height: 60px; border-radius: 50%; background-color: rgb(231, 83, 73); background-image: url(&quot;//www.sobot.com/chat/frame/imgs/icon.png&quot;); background-repeat: no-repeat; background-position: 18px -58px; right: 40px; bottom: 20px; display: none;"><a hidefocus="" id="zhichiBtn" style="position:relative;text-decoration: none; outline: none; font-family: Microsoft Yahei, Arial, Helvetica; color: #fff; font-size: 16px; display: inline-block; margin: 0; padding: 0; border: none; line-height:43px; float:none;width:100%;height:100%;border-radius:50%;"><span class="zc-advice-icon-btn-title" style="box-shadow: rgba(107, 113, 114, 0.15) 0px 2px 4px 0px; border: 1px solid rgb(235, 239, 240); font-family: &quot;Microsoft Yahei&quot;, Arial, Helvetica; color: rgb(85, 85, 86); font-size: 13px; margin: 0px; text-align: right; background: rgb(255, 255, 255); position: absolute; top: 15px; right: 70px; text-overflow: ellipsis; white-space: nowrap; word-break: normal; display: none; border-radius: 3px; padding: 0px 5px; height: 30px; line-height: 30px;">在线咨询</span></a><i style="position:absolute;top:0px;right:0px;padding:1px;line-height:20px;text-align:center;color:#fff;font-weight:bold;height:18px;min-width:18px;background-color:#ed5c5c;border-radius:18px;font-size:12px;display:none;font-style:normal;" id="zhichiCount"></i></div></body></html>

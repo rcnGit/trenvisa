@@ -53,37 +53,15 @@
                         <li class="fl">
                             <a  @click='Menu("","")' class='menuA_home menuA' :class="n3">首页</a>
                         </li>
-                        <li class="fl brand-li" @mouseenter='menHover("",$event)'  @mouseout='menOut("",$event)' ref='hoverObj'>
-                            <a   @click='Menu("yimin")'>移民国家</a>
-                            <div class="brand-nav">
-                                <div class="brand clearfix">
-                                    <div class="fl brand-list clearfix" >
-                                        <div class="brand-item clearfix" v-for="(itemList,index) in listYi" v-if='index<5'>
-                                            <div class="brand-tit fl"><i></i><strong>{{itemList.label}}</strong></div>
-                                            <div class="brand-info fl" v-for="(item,index) in itemList.labelExtEntity" v-if='index<20'>
-                                                <a :href='item.httpPath' target="_blank">{{item.country}}</a>
-                                                <!-- <a href="//loan.jd.com/ky/qaccess/indexUnion.htm" >加勒比海</a>
-                                                <a href="//loan.jd.com/dist/guide.htm">加拿大</a>
-                                                <a href="//jc.jd.com/">马耳他</a> -->
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="fr brand-img ">
-                                        <img src="picture/brand.png" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="fl brand-li">
-                            <a  @click='Menu("haiW")'>海外房产</a>
+                         <li class="fl brand-li" @mouseenter='menHover("",$event)'  @mouseleave='menOut("",$event)'>
+                            <a  @click='Menu("yimin","yimin")' :class="n8">移民国家</a>
                             <div class="brand-nav">
                                 <div class="brand clearfix">
                                     <div class="fl brand-list clearfix">
-                                        <div class="brand-item fl"  v-for="(itemList,index) in listHai" v-if='index<5'>
-                                            <div class="brand-tit fl" @click='Menu("haiW","","",itemList.countryName)' style='cursor:pointer;'><i></i><strong>{{itemList.countryName}}</strong></div>
-                                            <div class="brand-info fl" v-for="(item,index) in itemList.cityEntity" v-if='index<20'>
-                                                <a href='' @click='Menu("haiW","",item.city,itemList.countryName)'>{{item.city}}</a>
+                                        <div class="brand-item fl"  v-for="(itemList,index) in listYi" v-if='index<5'>
+                                            <div class="brand-tit fl"><i></i><strong>{{itemList.label}}</strong></div>
+                                            <div class="brand-info fl" v-for="(item,index) in itemList.labelExtEntity" v-if='index<20'>
+                                               <a :href='item.httpPath' target="_blank">{{item.country}}</a>
                                             </div>
                                         </div>
                                        
@@ -94,8 +72,48 @@
                                 </div>
                             </div>
                         </li>
+
+                        <li class="fl brand-li" @mouseenter='menHover("",$event)'  @mouseleave='menOut("",$event)'>
+                            <a  @click='Menu("haiW","haiW")' :class="n9">海外房产</a>
+                            <div class="brand-nav">
+                                <div class="brand clearfix">
+                                    <div class="fl brand-list clearfix">
+                                        <div class="brand-item fl"  v-for="(itemList,index) in listHai" v-if='index<5'>
+                                            <div class="brand-tit fl"><i></i><strong>{{itemList.countryName}}</strong></div>
+                                            <div class="brand-info fl" v-for="(item,index) in itemList.cityEntity" v-if='index<20'>
+                                                <a @click='Menu("haiW","haiW",item.city,itemList.countryName)'>{{item.city}}</a>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="fr brand-img ">
+                                        <img src="picture/brand.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                          <!-- ref='hoverObj' -->
+                        <!-- <li class="fl brand-li" @mouseenter='menHover("",$event)'  @mouseout='menOut("",$event)' >
+                            <a   @click='Menu("yimin","yimin")' :class="n8">移民国家</a>
+                            <div class="brand-nav">
+                                <div class="brand clearfix">
+                                    <div class="fl brand-list clearfix" >
+                                        <div class="brand-item clearfix" v-for="(itemList,index) in listYi" v-if='index<5'>
+                                            <div class="brand-tit fl"><i></i><strong>{{itemList.label}}</strong></div>
+                                            <div class="brand-info fl" v-for="(item,index) in itemList.labelExtEntity" v-if='index<20'>
+                                                <a :href='item.httpPath' target="_blank">{{item.country}}</a>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="fr brand-img ">
+                                        <img src="picture/brand.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </li> -->
                         <li class="fl">
-                            <a @click='Menu("liuxue","liu")' :class="n4">留学旅游</a>
+                            <a @click='Menu("liuxue","liu")' :class="n4">海外教育</a>
                         </li>
                         <li class="fl">
                             <a  @click='Menu("active","active")' class='menuA_active menuA' :class="n5">尊享活动</a>
@@ -143,7 +161,9 @@ export default {
             n4: '',
             n5: '',
             n6: '',
-            n7: ''
+            n7: '',
+            n8: '',
+            n9: ''
         }
        
     },
@@ -213,13 +233,15 @@ export default {
                 .then(res=>{
                     if(res.data.isSuccess==1){
                         that.listHai=res.data.list; 
-                        console.log(that.listHai);
+                        //console.log(that.listHai);
                     }
                            
                 })
             },
         Menu:function(str,name,city,countryName){
             var that=this;
+             
+           //console.log(str+'==='+name+'==='+city+'==='+countryName);
             // if(!id==false){
             //     window.location=that.Host+str+'?id='+id;
             // }else{
@@ -235,18 +257,29 @@ export default {
             //      //window.location.href='https://www.baidu.com/'
             // }
             that.navtitle = str
-            var city=encodeURIComponent(city);
+           
+            var cityn=encodeURIComponent(city);
+            
             var countryName=encodeURIComponent(countryName);
-           that.$router.push({
-            path:'/'+that.navtitle,
-            name:that.navtitle,
-            query:{  
-                name: name,
-                city:city,
-                countryName:countryName,
-             }
-            })
-           //alert(that.navtitle)
+             
+            if(countryName=='undefined'){
+                countryName=''
+            }
+            if(cityn=='undefined'){
+                cityn=''
+            }
+           //console.log(that.Host+str+'?name='+name+'&city='+cityn+'&countryName='+countryName)
+            window.location.href=that.Host+str+'?name='+name+'&city='+cityn+'&countryName='+countryName;
+        //    that.$router.push({
+        //     path:'/'+that.navtitle,
+        //     name:that.navtitle,
+        //     query:{  
+        //         name: name,
+        //         city:city,
+        //         countryName:countryName,
+        //      }
+        //     })
+           
         },
         getTime:function(){
            var that=this;
@@ -292,6 +325,12 @@ export default {
                     break;
                 case 'about':
                     this.n7 = "navactive";
+                    break;
+                 case 'yimin':
+                    this.n8 = "navactive";
+                    break;
+                case 'haiW':
+                    this.n9 = "navactive";
                     break;
             }
 
@@ -341,6 +380,12 @@ export default {
     overflow: hidden;
     margin-bottom: 10px;
 }
+.brand-tit strong{
+    width:72px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
 .supply-nav .brand-nav .brand a{
     line-height: 17px;
 }
@@ -352,7 +397,7 @@ export default {
     background: #25242a!important;
 }
 .supply-nav{
-    margin-top: 14px!important;
+    margin-top: 9px!important;
 }
 .hn-fixed .main-nav, .hn-fixed .header-nav-wrap-inner{
     height: 36px!important;
@@ -366,12 +411,12 @@ a.topgwA{
 }
 a.topgwA .gwBox{
 	position: absolute;
-	width:160px;
-	height:185px;
+	width:166px;
+	height:187px;
 	background:url(img/ewm_top.png) no-repeat;
 	background-size: cover;
 	top:20px;
-    left:-42px;
+    left:-52px;
     padding-top:9px;
     display: none;
 }
@@ -382,9 +427,10 @@ a.topgwA:hover .gwBox{
     font-size:14px;
     font-family:PingFang-SC-Medium;
     font-weight:500;
-    color:rgba(0,0,0,1);
-    line-height:38px;
+    color:#fff;
+    line-height:34px;
     text-align: center;
+    padding-top:5px;
 }
 
 .gwBox img{
@@ -395,7 +441,9 @@ a.topgwA:hover .gwBox{
 .navactive{
     color: #fff!important;
 }
-
+.header .supply-nav li{
+     padding-bottom: 0px;
+}
 </style>
 
 

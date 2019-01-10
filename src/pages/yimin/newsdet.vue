@@ -1,11 +1,12 @@
 <template>
     <div class='yimin activedet'>
+        <h1 style="display:none!important;">新闻资讯，移民政策，移民资讯，留学教育，移民攻略</h1>
         <h></h>
         <div class='yiminMain'>
             <div class='ban' id='newsB'></div>
            <div class='yiminDetBox'>
                <div class='w1200 posiRle' v-for='item in itemInfoArr'>
-                   <div class='yiminDTop shadow fl' style='min-height:810px;width:810px;'>
+                   <div class='yiminDTop shadow fl' style='min-height:904px;width:810px;'>
                        <div class='topHist'><span @click='toNews()'>新闻中心</span>><span>资讯详情</span></div>
                        <div class='lunText' style='width:100%;'>
                            <p class='tit'>{{item.title}}</p>
@@ -25,9 +26,9 @@
                             </div>
                         </div> -->
                          <div class='shadow rightCenter'>
-                              <p class='xiangTop'><img src='./img/xiang_zixun.png' width='20'/>相关咨询</p>
+                              <p class='xiangTop'><img src='./img/xiang_zixun.png' width='20'/>相关资讯</p>
                               <ul class='xiangUl'>
-                                  <li v-for='item in rightnew'>
+                                  <li v-for='item in rightnew' @click="toNewsdet(item.newsId)" class='pointer'>
                                       <p class='xiangTit'>{{item.title}}</p>
                                       <p class='date'>{{item.newsDate}}</p>
                                   </li>
@@ -35,14 +36,14 @@
                         </div>
                         <div class='shadow rightBottom'>
                             <p class='wxTit'><img src='./img/wx.png' width='20'/>官方微信</p>
-                            <div style="height:137px;">
+                            <div style="">
                                  <img src='../../../static/img/wx.png' style='display:block;width:80%;margin:0 auto;'/>
                             </div>
                             <p class='p1' style='text-align:center;'>关注唐仁国际微信公众号</p>
                             <p class='p1' style='text-align:center;'>移民动态实时掌握</p>
                         </div>
                    </div>
-
+                    <div style='clear:both;'> </div>
                    
                   
                </div>
@@ -60,7 +61,17 @@ import sidebar from '../../components/sidebar/sidebar.vue'
 import appointment from '../../components/appointment/appointment.vue'
 import axios from 'axios'
 export default {
-    name:'yimin',
+    name:'newsdet',
+     metaInfo: {
+        title: '新闻资讯，移民政策，移民资讯，留学教育，移民攻略_唐仁国际',
+      meta: [{                 // set meta
+        name: 'description',
+        content: '唐仁国际是大唐财富旗下投资移民与家庭规划高端品牌，为客户提供尊享、私密、专业的海外规划服务。为有全球化需求的高净值人群提供安全、可靠的海外身份及财富管理解决方案。业务涵盖：希腊移民，美国移民，圣基茨和尼维斯移民，葡萄牙移民，澳洲移民，欧洲移民，海外房产，海外教育等。移民去哪儿？来唐仁国际尊享专业移民顾问服务！'
+      },{                 // set meta
+        name: 'keyWords',
+        content: '新闻资讯，移民政策，移民资讯，留学教育，移民攻略_唐仁国际'
+      }]
+    },
     data:function(){
         return{
             bgList:['./img/hwImg2.png','./img/hwImg2.png'],
@@ -71,6 +82,12 @@ export default {
             rightItem:[],
             rightnew:[],
             flag:'',
+            loading:this.$loading({
+                lock: true,
+                text: '精彩内容即将出现...',
+                spinner: 'el-icon-loading loading',
+                background:'rgba(0, 0, 0, 0.7)',
+                }),
             }
     },
     components:{sidebar,appointment,f,h},
@@ -78,6 +95,10 @@ export default {
         toNews:function(){
             var that=this;
             window.location=that.Host+'news'
+        },
+         toNewsdet:function(id){
+            var that=this;
+            window.location=that.Host+'newsdet?id='+id
         },
         getInfo:function(id){
             var that=this;
@@ -88,15 +109,20 @@ export default {
                 var data=res.data;
                // console.log(data);
                 if(data.isSuccess==1){
+                     that.loading.close();
                    var itemInfo=data.newsinfo;
                    that.itemInfoArr.push(itemInfo);
                     that.fileList=data.fileList;
+                    setTimeout(function(){
+                       var detH=$('.posiRle').height()-250;
+                       $('.yiminDetBox').height(detH);
+                   },500)
                 }     
             })
         },
         getItem:function(id){
              var that=this;
-            var obj={"newsId":id,"channel":"1","type":'2'}
+            var obj={"newsId":id,"channel":"1","type":'1'}
              axios.post('/trpch/trcrm/news/queryNewsAndCountry',obj)
             .then(res=>{
                 var data=res.data;

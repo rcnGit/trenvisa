@@ -29,7 +29,7 @@ export default new Router({
       path: '/',
       name: 'home',
       meta: {
-        title: '唐仁国际',
+        title: '唐仁国际-大唐财富旗下投资移民与家庭规划服务平台',
         keepAlive: false // 不需要缓存
       },
       component: home
@@ -56,7 +56,7 @@ export default new Router({
       path: '/yimin',
       name: 'yimin',
       meta: {
-        title: '唐仁国际',
+        title: '移民项目，申请流程，申请条件，费用价格_唐仁国际',
         keepAlive: false // 不需要缓存
       },
       component: yimin
@@ -65,7 +65,7 @@ export default new Router({
       path: '/yimindet',
       name: 'yimindet',
       meta: {
-        title: '唐仁国际',
+        title: '移民项目，申请流程，申请条件，费用价格_唐仁国际',
         keepAlive: false // 不需要缓存
       },
       component: yimindet
@@ -83,7 +83,7 @@ export default new Router({
       path: '/haiW',
       name: 'haiW',
       meta: {
-        title: '唐仁国际',
+        title: '海外房产，海外房产公司，海外置业，国外购房_唐仁国际',
         keepAlive: false // 不需要缓存
       },
       component: haiW
@@ -92,7 +92,7 @@ export default new Router({
       path: '/suc',
       name: 'suc',
       meta: {
-        title: '唐仁国际',
+        title: '移民案例，移民成功案例_唐仁国际',
         keepAlive: false // 不需要缓存
       },
       component: suc
@@ -101,7 +101,7 @@ export default new Router({
       path: '/active',
       name: 'active',
       meta: {
-        title: '唐仁国际',
+        title: '尊享活动，移民活动，移民讲座，移民沙龙_唐仁国际',
         keepAlive: false // 不需要缓存
       },
       component: active
@@ -110,7 +110,7 @@ export default new Router({
       path: '/liuxue',
       name: 'liuxue',
       meta: {
-        title: '唐仁国际',
+        title: '海外教育，专业出国留学中介_唐仁国际',
         keepAlive: false // 不需要缓存
       },
       component: liuxue
@@ -119,7 +119,7 @@ export default new Router({
       path: '/liuxuedet',
       name: 'liuxuedet',
       meta: {
-        title: '唐仁国际',
+        title: '海外教育，专业出国留学中介_唐仁国际',
         keepAlive: false // 不需要缓存
       },
       component: liuxuedet
@@ -128,7 +128,7 @@ export default new Router({
       path: '/activedet',
       name: 'activedet',
       meta: {
-        title: '唐仁国际',
+        title: '尊享活动，移民活动，移民讲座，移民沙龙_唐仁国际',
         keepAlive: false // 不需要缓存
       },
       component: activedet
@@ -137,7 +137,7 @@ export default new Router({
       path: '/sucdet',
       name: 'sucdet',
       meta: {
-        title: '唐仁国际',
+        title: '移民案例，移民成功案例_唐仁国际',
         keepAlive: false // 不需要缓存
       },
       component: sucdet
@@ -146,7 +146,7 @@ export default new Router({
       path: '/newsdet',
       name: 'newsdet',
       meta: {
-        title: '唐仁国际',
+        title: '新闻资讯，移民政策，移民资讯，留学教育，移民攻略_唐仁国际',
         keepAlive: false // 不需要缓存
       },
       component: newsdet
@@ -155,7 +155,7 @@ export default new Router({
       path: '/news',
       name: 'news',
       meta: {
-        title: '唐仁国际',
+        title: '新闻资讯，移民政策，移民资讯，留学教育，移民攻略_唐仁国际',
         keepAlive: false // 不需要缓存
       },
       component: news
@@ -164,7 +164,7 @@ export default new Router({
       path: '/about',
       name: 'about',
       meta: {
-        title: '唐仁国际',
+        title: '关于我们_唐仁国际',
         keepAlive: false // 不需要缓存
       },
       component: about
@@ -173,7 +173,7 @@ export default new Router({
       path: '/haiWdet',
       name: 'haiWdet',
       meta: {
-        title: '唐仁国际',
+        title: '海外房产，海外房产公司，海外置业，国外购房_唐仁国际',
         keepAlive: false // 不需要缓存
       },
       component: haiWdet

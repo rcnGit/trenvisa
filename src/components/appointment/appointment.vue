@@ -5,17 +5,17 @@
                 <!-- :before-close="handleClose" -->
             <div class='appHead' v-show="ifNoSuc">   
                 <span class='fl apptit'>唐仁国际</span>
-                <span class='fr appTel'><img src='./appTel.png' style='width:20px;'/>010-52705440</span>
+                <span class='fr appTel'><img src='./appTel.png' style='width:20px;'/>010-53520719</span>
             </div>
             <div class='appBody' v-show="ifNoSuc">
                 <h3>预约移民顾问服务</h3>
                 <p style='font-size:16px;font-weight:400;color:rgba(51,51,51,1);text-align:Center;margin-bottom:50px;'>项目：{{itemName}}</p>
                      <el-form ref="appointForm" :model="appointForm" status-icon :rules="rules2"  label-width="80px">
                         <el-form-item label="" prop="name">
-                            <el-input v-model="appointForm.name" placeholder="请输入您的姓名"></el-input>
+                            <el-input v-model="appointForm.name" placeholder="请输入您的姓名" maxlength="20"></el-input>
                         </el-form-item>
                         <el-form-item label="" prop="phone">
-                            <el-input v-model="appointForm.phone" placeholder="请输入您的手机号"></el-input>
+                            <el-input v-model="appointForm.phone" placeholder="请输入您的手机号" maxlength="11"></el-input>
                         </el-form-item>
                     </el-form>
             </div>
@@ -44,9 +44,9 @@ export default {
                //console.log(value);
                 if (!value){
                 //this.warnShow2= true
-                callback(new Error('请输入电话号码'))
+                callback(new Error('请输入您的手机号'))
                 }else  if (!isValidMobile(value)){
-                callback(new Error('请输入正确的11位手机号码'))
+                callback(new Error('手机号需为11位数字'))
                 }else {
                 callback()
                 }
@@ -55,9 +55,9 @@ export default {
                 //console.log(value)
                
                 if (value =='') {
-                callback(new Error('请输入姓名'));
+                callback(new Error('请输入您的真实姓名'));
                 }else if(isValidName(value)){
-                    callback(new Error('请输入正确的姓名'));
+                    callback(new Error('姓名需为中文字符'));
                 }else{
                 callback();
                 }
@@ -66,6 +66,7 @@ export default {
             dialogVisible:false,
             ifNoSuc:true,
             itemName:'美国移民 EB-1A杰出人才',
+            nationCode:'',
             itemId:'583441e4a70d42ccaa77315ba957132d',
             appointForm:{
                 phone:'',
@@ -91,12 +92,13 @@ export default {
           })
           .catch(_ => {});
       },
-      toShow:function(name,id,ifShow,ifNoSuc){
+      toShow:function(name,id,ifShow,ifNoSuc,nationCode){
           let that = this;
           that.dialogVisible=ifShow;
           that.itemName=name;
           that.itemId=id;
           that.ifNoSuc=ifNoSuc;
+          that.nationCode=nationCode;
       },
       submitForm(formName) {
              let that = this
@@ -116,14 +118,19 @@ export default {
         var postData={
             USER_NAME: that.appointForm.name,
             APPOINT_ITEM: that.itemId,
+            ITEMNAME:that.itemName,
             TEL_PHONE:that.appointForm.phone,
-            CHANNEL:'1'
+            CHANNEL:'1',
+            nationCode:that.nationCode
         }
+        console.log(postData);
         axios.post('/trpch/trcrm/apppointment/insertApporintItem',postData).then(response => {   
             that.isdisabledbtn = false
             //console.log(response.data);
             if(response.data.isSuccess==1){
                that.ifNoSuc=false;
+               that.appointForm.name=''
+               that.appointForm.phone=''
             }
            
         }).catch(error => {
@@ -143,7 +150,7 @@ export default {
         right: -23px!important;
     }
     .appBg .el-dialog__headerbtn .el-dialog__close{
-        color:#fff;
+        color:#fff!important;
     }
     .appBg .el-dialog__header{
         padding:0!important;

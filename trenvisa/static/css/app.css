@@ -4,16 +4,26 @@
 	position: relative;
 	z-index: 10
 }
-
+.floor-tab li .countryImg::before{
+	opacity: 0;
+	content: "无";
+}
+img::after{
+	opacity: 1;
+}
+.header-nav-wrap{
+	height:55px;
+}
 .hn-fixed .header-nav-wrap-inner {
 	box-shadow: 0 0 0 rgba(0, 0, 0, .22);
 }
 
 .hn-fixed .main-nav,
 .hn-fixed .main-nav .nav-wrap {
-	height: 36px;
+	height: 100%;
 	background: #25242a
 }
+
 
 .hn-fixed .main-nav {
 	padding: 7px 0
@@ -99,8 +109,8 @@ button{
 .topbar-wrap .topmenu1 .topmenu-item a:hover {
 	text-decoration: none;
 	opacity: 1;
-	color: #dcdcdc!important;
-	filter: alpha(opacity=1)
+	color: #CDCDCD!important;
+	filter: alpha(opacity=50)
 }
 .topbar-wrap .topmenu .topmenu-item .user-info>span>span {
 	transition: .3s all ease;
@@ -149,7 +159,7 @@ button{
 }
 
 .main-nav .main-nav-logo a img {
-	margin-top: 12px
+	margin-top: 10px
 }
 
 .main-nav-logo {
@@ -161,7 +171,7 @@ button{
 }
 
 .supply-nav li {
-	margin-left: 40px;
+	margin-left: 48px;
 	padding-bottom: 23px
 }
 
@@ -178,7 +188,7 @@ button{
 .supply-nav .brand-nav {
 	position: absolute;
 	width: 100%;
-	top: 71px;
+	top:56px;
 	left: 0;
 	border-top: 0;
 	background: #26252c;
@@ -221,8 +231,12 @@ button{
 	display: block;
 	padding-left: 80px;
 	color: #dcdcdc;
-	font: 400 14px/32px 'Microsoft Yahei';
-	transition: .3s all ease
+	font: 400 16px/32px 'Microsoft Yahei';
+	transition: .3s all ease;
+	min-width: 65px;
+    white-space: nowrap;
+    /* overflow: hidden; */
+    height: 22px;
 }
 
 .supply-nav .brand-nav .brand a:hover {
@@ -230,7 +244,7 @@ button{
 }
 
 .supply-nav .brand-nav .brand-list {
-	width: 657px
+	width: 830px
 }
 
 .supply-nav .brand-li.cur .brand-nav {
@@ -469,7 +483,7 @@ a.ui-sidebar-block:hover .slidLab{
 .banner .changeindex {
 	position: absolute;
 	right: 0;
-	top: 418px
+	top: 435px
 }
 
 .banner .changeindex a {
@@ -569,7 +583,7 @@ a.ui-sidebar-block:hover .slidLab{
 .banner li .bannerInfo {
 	width: 1070px;
 	margin: 0 auto;
-	padding-top: 97px;
+	padding-top: 80px;
 	padding-left: 130px;
 	position: relative;
 	z-index: 2;
@@ -580,16 +594,18 @@ a.ui-sidebar-block:hover .slidLab{
 .banner li h3 {
 	color: #fff;
 	font: 700 68px/70px 'Microsoft Yahei';
-	padding-bottom: 27px;
-	background: url(../images/bannercutline.png) left bottom no-repeat;
+	padding-bottom:35px;
+	background: url(../img/bannercutline.png) left bottom no-repeat;
 	/* margin-bottom: 34px; */
-	text-shadow: 0 25px 24px rgba(0, 0, 0, .05)
+	text-shadow: 0 25px 24px rgba(0, 0, 0, .05);
+	margin-bottom:29px;
+	/* height:148px; */
 }
 
 .banner li p {
 	color: #fff;
 	font: 400 20px/22px 'Microsoft Yahei';
-	margin-bottom: 70px;
+	margin-bottom: 80px;
 	text-shadow: 0 5px 14px rgba(0, 0, 0, .05)
 }
 
@@ -633,14 +649,14 @@ a.ui-sidebar-block:hover .slidLab{
 
 .consultation {
 	width: 1200px;
-	margin: -301px auto 80px;
+	margin: -328px auto 80px;
 	position: relative;
 	z-index: 2
 }
 
 .consultation .sup-nav {
 	width: 377px;
-	height: 351px;
+	height: 338px;
 	background: url(../img/bannernav.png) no-repeat; 
 	margin-left: -21px ;
 	z-index:99;
@@ -654,6 +670,7 @@ a.ui-sidebar-block:hover .slidLab{
 	color:rgba(60,40,20,1);
 	margin-top:22px;
 	outline: none;
+	font-size: 16px;
 }
 
 .consultation .sup-nav ul li {
@@ -784,18 +801,19 @@ a.ui-sidebar-block:hover .slidLab{
 	line-height: 24px;
 	color:#EEEEEE;
 	cursor: pointer;
-
+	font-size: 14px;
 }
 .nBox_center .actName{
-	font-size:20px;
+	font-size:16px;
 	font-family:MicrosoftYaHei;
 	font-weight:400;
-	color:rgba(255,254,254,1);
+	color:#fff;
 	overflow:hidden; 
 	text-overflow:ellipsis;
 	display:-webkit-box; 
 	-webkit-box-orient:vertical;
-	-webkit-line-clamp:1; 
+	-webkit-line-clamp:2;
+	height:45px; 
 }
 
 .nBox_center .actTime{
@@ -827,10 +845,10 @@ a.ui-sidebar-block:hover .slidLab{
 	cursor: pointer;
 }
 .nBox_center .reName{
-	font-size:14px;
+	font-size:16px;
 	font-family:MicrosoftYaHei;
 	font-weight:400;
-	color:rgba(237,235,235,1);
+	color:#fff;
 	line-height:24px;
 	overflow:hidden; 
 	text-overflow:ellipsis;
@@ -838,13 +856,14 @@ a.ui-sidebar-block:hover .slidLab{
 	-webkit-box-orient:vertical;
 	-webkit-line-clamp:2; 
 	height:45px;
+	cursor: pointer;
 }
 .nBox_center .reTime{
 	font-size:14px;
 	font-family:MicrosoftYaHei;
 	font-weight:400;
 	color:rgba(237,235,235,1);
-	margin-top:15px;
+	margin-top:22px;
 }
 .nBox_bottom{
 	clear: both;
@@ -992,6 +1011,8 @@ a.ui-sidebar-block:hover .slidLab{
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	cursor: pointer;
+	padding: 0 10px;
+    box-sizing: border-box;
 }
 .consultation .consultation-more .down i.active {
 	height: 42px;
@@ -1083,7 +1104,7 @@ a.ui-sidebar-block:hover .slidLab{
 	font-weight:400;
 	color:rgba(176,154,125,1);
 	line-height:14px;
-	padding-top:50px;
+	padding-top:60px;
 	text-align: center;
 }
 .footYuYue .inputBox input{
@@ -1371,6 +1392,7 @@ margin-left:0!important;
 	-moz-transition: -moz-transform 0.3s;
 	-o-transition: -o-transform 0.3s;
 	transition: transform 0.3s;
+	height:100%;
 }
 .liuMengB{
 	position: absolute;
@@ -1605,6 +1627,8 @@ margin-left:0!important;
 	width:40px;
 	height:40px;
 	border-radius: 100%;
+	background: #787878;
+	overflow: hidden;
 }
 .floor-tab li b {
 	overflow: hidden;
@@ -1622,7 +1646,7 @@ margin-left:0!important;
 }
 
 .floor-tab li.cur b {
-	width: 73px
+	width: 63px
 }
 
 .floor-have-shadow {
@@ -1690,7 +1714,7 @@ margin-left:0!important;
 	z-index: 1
 }
 .proBox{
-	width:1012px;
+	width:1019px;
 	height:340px;
 	background:rgba(65,64,68,1);
 	position: relative;
@@ -1700,19 +1724,22 @@ margin-left:0!important;
 }
 .product-info .product-tit {
 	position: absolute;
-	left: 0;
-	top: 0;
-	width:572px;
-	z-index: 2;
-	padding-left:15px;
+    left: 15px;
+    top: 15px;
+    width: 572px;
+    z-index: 2;
+    padding-left: 15px;
+    box-sizing: border-box;
+	height: 310px;
+	background-color: rgba(0,0,0,0.5);
 }
 .product-info .product-tit span{
 	position: absolute;
 	padding:6px 16px;
 	background-color:rgba(0, 0, 0, .5);
 	color:#fff;
-	left:15px;
-	top:24px;
+	left:0px;
+	top:10px;
 }
 .product-info .product-tit h3 {
 	padding-top: 71px;
@@ -1798,6 +1825,10 @@ border-radius:23px;
 	width:150px;
 	height:92px;
 	cursor: pointer;
+}
+.charLiCenter_img img{
+	border:none;
+	background:#787878;
 }
 .charLiCenter .charLiCenter_text{
 	cursor: pointer;
@@ -2176,7 +2207,7 @@ border-radius:23px;
 	background-position: center center;
 	margin: 0 auto;
 	position: relative;
-	z-index: 1
+	z-index: 0
 }
 
 .fuwu-box {
@@ -2498,7 +2529,7 @@ html {
 }
 .yiminListBox{
 	width:1200px;
-	min-height:986px;
+	min-height:600px;
 	box-sizing: border-box;
 	margin:0 auto 0;
 	position: relative;
@@ -2506,7 +2537,8 @@ html {
 }
 .navT{
 	width:200px;
-	height:986px;
+	min-height:500px;
+	height:100%;
 	/* background:#F4F4F4; */
 	box-sizing: border-box;
 	background:url(../img/navbg.jpg) no-repeat #F4F4F4;
@@ -2552,17 +2584,19 @@ html {
 	background:#fff;
 	width:1000px;
 	padding-right:30px;
-	min-height:986px;
+	min-height:600px;
+	height:100%;
 	padding-bottom: 40px;
 }
 .dataList{
-	padding-left:30px;
+	padding-left:17px;
 	box-sizing: border-box;
 	overflow: hidden;
 }
 .yindataList{
 	max-width: 620px;
 	min-height: 200px;
+	width:43%;
 }
 .tir{
 	max-width:200px;
@@ -2576,6 +2610,7 @@ html {
 	width: 300px;
 	height:200px;
 	position: relative;
+	background: #a79d9d;
 }
 .navLiImgB .act1{
 	position: absolute;
@@ -2589,6 +2624,63 @@ html {
 	line-height: 32px;
 	color:#FFFFFF;
 }
+.yiTatol{
+	width: 24%;
+	float: right;
+	text-align: right;
+	overflow: hidden;
+}
+.yiTatol p{
+	white-space: normal;
+	word-wrap: break-word;
+}
+.fileImg{
+	display: block;
+	width:72px;
+	height:62px;
+	margin:0 auto;
+}
+.fileTit{
+	font-size:18px;
+	color:rgba(102,102,102,1);
+	text-align: center;
+	margin:30px auto;
+}
+.fileDtishi{
+	width:47px;
+	height:20px;
+	background:url(../img/downloadBg.png) no-repeat;
+	background-size: 100%;
+	position: absolute;
+	right:0;
+	top: 2px;
+	font-size: 12px;
+	color: #fff;
+	line-height: 22px;
+	text-align: center;
+	font-style: normal;
+}
+.fileDtishi:hover{
+	background:url(../img/downloadBg_sel.png) no-repeat;
+}
+.fileBtn{
+	width:142px;
+	height:40px;
+	background:rgba(176,154,125,1);
+	border-radius:4px;
+	color:#fff;
+	display: block;
+	margin:0 auto 30px;
+	text-align: center;
+	line-height: 40px;
+	font-size:18px;
+
+}
+.fileText{
+	text-align: center;
+	font-size:14px;
+	color:rgba(153,153,153,1);
+}
 .navLiImgB .act2{
 	position: absolute;
     width: 62px;
@@ -2597,7 +2689,7 @@ html {
     opacity: 0.5;
     text-align: center;
     top: 10px;
-    left: 5px;
+    left: 0px;
 	line-height: 32px;
 	color:#FFFFFF;
 }
@@ -2611,6 +2703,7 @@ html {
 	display: block;
 	width:100%;
 	height:100%;
+	position: relative;
 }
 .dataList .name{
 	/* max-height:37px; */
@@ -2652,7 +2745,7 @@ html {
     margin-right: 10px;
 
 }
-.dataList .checkDet{
+.dataList .checkDet,.yiTatol .checkDet{
 	width:122px;
 	height:32px;
 	background:rgba(176,154,125,1);
@@ -2664,6 +2757,7 @@ html {
 	color:rgba(255,255,255,1);
 	text-align: center;
 	display: block;
+	float:right;
 }
 .cityTop{
 	width: 100%;
@@ -2687,8 +2781,9 @@ html {
 	color:#fff;
 }
  .el-pagination{
-	margin-top:35px!important;
+	margin-top:15px!important;
 	text-align: center;
+	/* display:none; */
 }
 .el-pagination.is-background .el-pager li{
 	background-color: #fff!important;
@@ -2703,15 +2798,24 @@ html {
 .yiminDetBox{
 	min-height:810px;
 	background:#fff;
+	position: relative;
+	padding-bottom:30px;
+	padding-top: 30px;
 }
 .w1200{
 	width:1200px;
 	margin:0 auto;
 	min-height:200px;
 }
-.posiRle{
+/* .posiRle{
 	position: relative;
-	top:-250px;;
+	top:-250px;
+} */
+.posiRle{
+	position: absolute;
+    top: -250px;
+    left: 50%;
+    margin-left: -600px;
 }
 .yiminDTop{
 	min-height:320px;
@@ -2744,13 +2848,14 @@ html {
 	padding-left:20px;
 	box-sizing: border-box;
 	padding-right: 20px;
+	padding-bottom:10px;
 }
 .lunText .tit{
 	font-size:24px;
 	font-family:MicrosoftYaHei;
 	font-weight:400;
 	color:rgba(0,0,0,1);
-	margin-bottom:14px;
+	margin-bottom:10px;
 	padding-top:10px;
 	/* white-space: nowrap;
     overflow: hidden;
@@ -2761,14 +2866,14 @@ html {
 	font-family:MicrosoftYaHei;
 	font-weight:400;
 	color:rgba(102,102,102,1);
-	margin-bottom:14px;
+	margin-bottom:10px;
 }
 .lunText .type{
 	margin-bottom:14px;
-	height:17px;
+	min-height:17px;
 }
 .lunText .type span{
-	font-size:16px;
+	font-size:14px;
 	font-family:MicrosoftYaHei;
 	font-weight:400;
 	color:rgba(51,51,51,1);
@@ -2779,22 +2884,30 @@ html {
 	font-family:MicrosoftYaHei;
 	font-weight:400;
 	color:rgba(1,1,1,1);
-	margin:20px 0;
+	margin:10px 0;
 }
 .fixmao{
 	position: fixed;
     left: 50%;
-    top: 71px;
+    top: 56px;
     background: #fff;
-	width: 1200px!important;
-	transform: translateX(-50%);
-	z-index: 999;
+    width: 1200px!important;
+    transform: translateX(-50%);
+    z-index: 8;
 }
 .pric span{
-	font-size:32px;
+	font-size:28px;
 	font-family:MicrosoftYaHei;
 	font-weight:bold;
 	color:rgba(176,154,125,1);
+	display: inline-block;
+    min-width: 182px;
+}
+.pric span i{
+	font-size: 16px;
+	font-weight: 400;
+	color: rgba(1,1,1,1);
+	font-style: normal;
 }
 .yuyueBtn{
 	display: inline-block;
@@ -2825,7 +2938,7 @@ html {
 	font-family:MicrosoftYaHei;
 	font-weight:400;
 	color:rgba(102,102,102,1);
-	padding-left:57px;
+	padding-left:86px;
 	line-height: 45px;
 }
 .el-carousel__item h3 {
@@ -2838,12 +2951,12 @@ html {
   
   .yiminDBottom{
 	  margin-top:20px;
-	  min-height:500px;
+	  min-height:420px;
 	  font-size:16px;
 	  font-family:MicrosoftYaHei;
 	  font-weight:400;
 	  color:rgba(102,102,102,1);
-	  line-height:22px;
+	  /* line-height:22px; */
   }
   .maoUl{
 	  width:100%;
@@ -2853,7 +2966,7 @@ html {
 	  /* border-bottom:1px solid #C8C8C8; */
 	  box-shadow:0px 2px 4px 0px rgba(200,200,200,0.5);
   }
-  .maoUl li{
+  .maoUl li,.maoUl p{
 	  float: left;
 	  height:100%;
 	  width:140px;
@@ -2865,7 +2978,8 @@ html {
 	  cursor: pointer;
 	  margin-left:30px;
   }
-  .maoUl li.active{
+  
+  .maoUl li.active,.maoUl p.active{
 	  color:#B09A7D;
 	  border-bottom:2px solid #B09A7D;
   }
@@ -2942,13 +3056,15 @@ html {
 	margin-right:10px;
 }
 .topHist{
-	font-size:16px;
-	font-family:MicrosoftYaHei;
-	font-weight:400;
-	color:rgba(51,51,51,1);
-	border-bottom: 1px solid rgba(238,238,238,1);
-	padding-bottom:10px;
-	cursor: pointer;
+	font-size: 18px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(51,51,51,1);
+    border-bottom: 1px solid rgba(238,238,238,1);
+    padding-bottom: 19px;
+    cursor: pointer;
+    padding-left: 20px;
+    padding-top: 10px;
 }
 .rightD{
 	width:360px;
@@ -3022,6 +3138,7 @@ html {
 	font-family:MicrosoftYaHei;
 	font-weight:400;
 	color:rgba(0,0,0,1);
+	margin-bottom:10px;
 }
 .rightCenter .xiangTop img,.rightBottom .wxTit img{
 	vertical-align: 0px!important;
@@ -3032,6 +3149,9 @@ html {
 	box-sizing: border-box;
 	padding:12px 0;
 	border-bottom: 1px solid rgba(238,238,238,1);
+}
+.xiangUl li:last-child{
+	border:none;
 }
 .xiangUl li .xiangTit{
 	font-size:20px;
@@ -3153,7 +3273,8 @@ html {
 	.zidu{
 		width:100%;
 		min-height:200px;
-		padding:20px;
+		padding: 30px 20px;
+    	margin-bottom: 30px!important;
 		box-sizing: border-box;
 		background:rgba(248,248,248,1);
 	}
@@ -3163,7 +3284,7 @@ html {
 	}
 	.zidu .leiH{
 		width:40%;
-		height:30px;
+		min-height:30px;
 		line-height: 30px;
 		font-size: 16px;
 		box-sizing: border-box;
@@ -3172,18 +3293,27 @@ html {
 		width:60%;
 	}
 	.zidu .nameH{
-		display:inline-block;
-		width:110px;
+		display:block;
+		width:20%;
 		color:rgba(123,123,123,1);
+		float: left;
+		height: auto;
+	}
+	.zidu .nameT{
+		display:block;
+		width:80%;
+		color:rgba(123,123,123,1);
+		float: left;
+		height: auto;
 	}
 	.huxUl{
 		widt:100%;
-		min-height:200px;
+		min-height:175px;
 	}
 	.huxUl li{
 		width:100%;
 		box-sizing: border-box;
-		padding:0 20px 20px;
+		padding:0 20px 10px;
 		display: flex;
 	}
 	.huxUl .houseImg{
@@ -3244,6 +3374,34 @@ html {
 	.el-form-item__error{
 		left:11px!important;
 	}
+	.appBg .el-dialog{
+		z-index:999!important;
+	}
 	.appBg .el-dialog__headerbtn .el-dialog__close:hover{
 		color:#fff!important;
+	}
+	.el-scrollbar__bar{
+		display: none!important;
+	}
+	.el-scrollbar__wrap{
+		overflow-x: hidden!important;
+	}
+	.deletPic img{
+		display: none!important;
+	}
+	.deletPic{
+		font-size: 16px!important;
+		font-family: MicrosoftYaHei!important;
+		font-weight: 400!important;
+		color: rgba(119,119,119,1)!important;
+		line-height: 24px!important;
+		margin-bottom: 25px!important;
+	}
+	.loading{
+		font-size: 30px!important;
+		color: rgba(176,154,125,1)!important;
+	}
+	.el-loading-spinner .el-loading-text{
+		font-size: 20px!important;
+		color: rgba(176,154,125,1)!important;
 	}

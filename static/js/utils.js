@@ -1,8 +1,9 @@
 import axios from 'axios';
 export default {
-    install(Vue, options) {
+    install:function(Vue, options) {
         //Vue.prototype.Host='http://172.16.8.64:8080/?#/';
         Vue.prototype.Host='http://172.16.6.68/';
+        //Vue.prototype.Host='http://www.tangrenvisa.com/';
         Vue.prototype.formatDuring = function (mss) {//时间格式化
             var days = parseInt(mss / (1000 * 60 * 60 * 24));
             var hours = parseInt((mss % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -10,7 +11,7 @@ export default {
             var seconds = (mss % (1000 * 60)) / 1000;
             return days + " 天 " + hours + " 小时 " + minutes + " 分 " + Math.round(seconds) + " 秒 ";
         }
-    
+        
         Vue.prototype.money = function (value) {//Vue自定义过滤器格式化数字三位加一逗号
             if(!value) return '0.00';
             var intPart = parseInt(value); //获取整数部分

@@ -61,5 +61,8 @@ export function crtTime (val) {
 }
 // 姓名的校验
 export function isValidName (name) {
-  return /[，\s_'’‘\"”“|\\~#$@￥%^&*!。;\/<>\?？]/.test(name)
+ // return /[，\s_'’‘\"”“|\\~#$@￥%^&*!。;\/<>\?？]/.test(name)
+ var reg=/^[\u0391-\uFFE5\.]+$/;
+ 
+ return !(reg.test(name))
 }

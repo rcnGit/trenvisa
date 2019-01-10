@@ -3,15 +3,15 @@
         <div class='ui-sidebar'>
             <a class='ui-sidebar-block feedback'>
                <div class='slidLab slidLab_Tel'>
-                   <p class='p1'>010-52705435</p>
-                   <p class='p2'>(8:30-17:30)</p>
+                   <!-- <p class='p1'>010-52705435</p>
+                   <p class='p2'>(8:30-17:30)</p> -->
                </div>
             </a>
             <a class='ui-sidebar-block yuyue' @click="toAppont()"></a>
             <a class='ui-sidebar-block yimin' @click="tonews()"></a>
             <a class='ui-sidebar-block wx'>
                 <div class='slidLab slidLab_ma'>
-                     <p style='line-height:34px;font-size:14px;font-family:PingFang-SC-Medium;font-weight:500;color:rgba(0,0,0,1);text-align:center;'>扫描二维码关注</p>
+                     <p style='line-height:36px;padding-top: 5px;font-size:14px;font-family:PingFang-SC-Medium;font-weight:500;color:#fff;text-align:center;'>扫描二维码关注</p>
                      <img src='../../../static/img/wx.png' />
                      </div>
             </a>
@@ -97,7 +97,7 @@ export default {
 .slidLab_Tel{
     background:url(img/bg_tel.png) no-repeat;
     width:173px;
-    height:72px;
+    height:77px;
     background-size: cover;
     text-align: center;
 }
@@ -118,7 +118,7 @@ export default {
 .slidLab_ma{
     background:url(img/right_ewm.png) no-repeat;
     width:173px;
-    height:187px;
+    height:196px;
     background-size: cover;
     text-align: center;
     top:-65px!important;

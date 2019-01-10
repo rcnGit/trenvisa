@@ -1,11 +1,12 @@
 <template>
     <div class='yimin activedet'>
+        <h1 style="display:none!important;">移民案例，移民成功案例，移民经典案例</h1>
         <h></h>
         <div class='yiminMain' style='min-height:1200px;'>
             <div class='ban' id='sucB'></div>
-           <div class='yiminDetBox shadow' style=''>
+           <div class='yiminDetBox shadow' style='min-height:680px;'>
                <div class='w1200 posiRle' v-for='item in itemInfoArr'>
-                   <div class='yiminDTop shadow fl' style='min-height:1177px;width:810px;'>
+                   <div class='yiminDTop shadow fl' style='min-height:1180px;width:810px;'>
                        <div class='topHist'><span @click='toSuc()'>成功案例</span>><span>案例详情</span></div>
                        <div class='lunText' style='width:100%;'>
                            <p class='tit'>{{item.title}}</p>
@@ -14,7 +15,7 @@
                        </div>
                    </div>
                    <div class='fr rightD'>
-                        <div class='shadow rightTop'>
+                        <div class='shadow rightTop' id='recomItem' v-show="tuijian">
                             <p class='titp'><img src='./img/tui.png' width='20'/>推荐项目</p>
                             <div class='itemBox'  v-for='item in rightItem'>
                                 <img src='./img/hWImg2.png' width='100%' height='100%'/>
@@ -27,7 +28,7 @@
                          <div class='shadow rightCenter'>
                               <p class='xiangTop'><img src='./img/xiangguan.png' width='20'/>相关案例</p>
                               <ul class='xiangUl'>
-                                  <li v-for='item in rightnew'>
+                                  <li v-for="item in rightnew" @click="tosucdet(item.newsId)" class='pointer'>
                                       <p class='xiangTit'>{{item.title}}</p>
                                       <p class='date'>{{item.newsDate}}</p>
                                   </li>
@@ -60,7 +61,17 @@ import sidebar from '../../components/sidebar/sidebar.vue'
 import appointment from '../../components/appointment/appointment.vue'
 import axios from 'axios'
 export default {
-    name:'yimin',
+    name:'sucdet',
+     metaInfo: {
+        title: '移民案例，移民成功案例_唐仁国际',
+      meta: [{                 // set meta
+        name: 'description',
+        content: '唐仁国际是大唐财富旗下投资移民与家庭规划高端品牌，为客户提供尊享、私密、专业的海外规划服务。为有全球化需求的高净值人群提供安全、可靠的海外身份及财富管理解决方案。业务涵盖：希腊移民，美国移民，圣基茨和尼维斯移民，葡萄牙移民，澳洲移民，欧洲移民，海外房产，海外教育等。移民去哪儿？来唐仁国际尊享专业移民顾问服务！'
+      },{                 // set meta
+        name: 'keyWords',
+        content: '移民案例，移民成功案例，移民经典案例，唐仁国际'
+      }]
+    },
     data:function(){
         return{
             bgList:['./img/hwImg2.png','./img/hwImg2.png'],
@@ -71,6 +82,13 @@ export default {
             rightItem:[],
             rightnew:[],
             flag:'',
+            tuijian:false,
+            loading:this.$loading({
+                lock: true,
+                text: '精彩内容即将出现...',
+                spinner: 'el-icon-loading loading',
+                background:'rgba(0, 0, 0, 0.7)',
+                }),
             }
     },
     components:{sidebar,appointment,f,h},
@@ -78,6 +96,10 @@ export default {
         toSuc:function(){
             var that=this;
             window.location=that.Host+'suc'
+        },
+        tosucdet:function(id){
+            var that=this;
+            window.location=that.Host+'sucdet?id='+id
         },
         getInfo:function(id){
             var that=this;
@@ -91,6 +113,11 @@ export default {
                    var itemInfo=data.newsinfo;
                    that.itemInfoArr.push(itemInfo);
                     that.fileList=data.fileList;
+                     that.loading.close();
+                    setTimeout(function(){
+                       var detH=$('.posiRle').height()-250;
+                       $('.yiminDetBox').height(detH);
+                   },500)
                 }     
             })
         },
@@ -102,7 +129,16 @@ export default {
                 var data=res.data;
                 console.log(data);
                 if(data.isSuccess==1){
+                    console.log(data.itemList)
+                     console.log(!data.itemList==false&&data.itemList.length>0)
+                if(!data.itemList==false&&data.itemList.length>0){
                    that.rightItem=data.itemList;
+                   that.tuijian=true;
+                }else{
+                    // $('#recomItem').hide();
+                    //console.log('hide'+$('#recomItem').length+$('#recomItem').css('display'));
+                     that.tuijian=false;
+                }               
                    that.rightnew=data.list;
                    that.flag=data.flag;
                 }     
@@ -122,7 +158,7 @@ export default {
              }else if(type==3){
                  itemName='haiWdet';
              }
-            window.location=that.Host+itemName+'?id='+id;
+            window.open(that.Host+itemName+'?id='+id);
         }
     },
     created:function(){

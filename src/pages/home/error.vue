@@ -1,5 +1,6 @@
 <template>
     <div class='yimin contact'>
+        <h1 style="display:none!important;">移民，希腊移民，美国移民，圣基茨和尼维斯移民，葡萄牙移民，海外房产</h1>
         <h></h>
         <div class='yiminMain'>
             <div class='ban'>
@@ -27,6 +28,16 @@ import sidebar from '../../components/sidebar/sidebar.vue'
 import axios from 'axios'
 export default {
     name:'error',
+     metaInfo: {
+        title: '404页面出错了_唐仁国际',
+      meta: [{                 // set meta
+        name: 'description',
+        content: '唐仁国际是大唐财富旗下投资移民与家庭规划高端品牌，为客户提供尊享、私密、专业的海外规划服务。为有全球化需求的高净值人群提供安全、可靠的海外身份及财富管理解决方案。业务涵盖：希腊移民，美国移民，圣基茨和尼维斯移民，葡萄牙移民，澳洲移民，欧洲移民，海外房产，海外教育等。移民去哪儿？来唐仁国际尊享专业移民顾问服务！'
+      },{                 // set meta
+        name: 'keyWords',
+        content: '移民，希腊移民，美国移民，圣基茨和尼维斯移民，葡萄牙移民，海外房产，唐仁国际，大唐财富'
+      }]
+    },
     data:function(){
         return{
             pageSize:1,

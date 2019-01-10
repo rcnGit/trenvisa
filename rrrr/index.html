@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>唐仁国际</title><link rel=stylesheet href=static/css/base.css><link rel=stylesheet href=static/css/common.css><link rel=stylesheet href=static/css/loanresult.css><link rel=stylesheet href=static/css/app.css><link rel=stylesheet href=static/base_1.css><link rel=icon href=./static/img/favicon.ico type=image/x-icon><style>dl, ol, ul{
+      margin-bottom:0!important;
+    }</style><link href=./static/css/app.7a5f6dea4134f774b70eca42702a42bb.css rel=stylesheet></head><body><div id=app></div><div><button id=btn class=zhiCustomBtn></button></div><style>.zhiCustomBtn{
+        position: fixed;
+        top: 392px!important;
+        opacity: 1!important;
+        z-index: 2000!important;
+        right: 5px;
+        width: 70px;
+        height: 70px;
+        background: url(static/img/zixun.png) no-repeat #f4d1b2!important;
+        outline: none!important;
+        cursor: pointer;
+        border-radius: 5px;
+      } 
+      .zhiCustomBtn:hover{
+	      background: url(static/img/zixun_sel.png) no-repeat #f4d1b2!important;
+      }</style><script src=static/js/jquery.js></script><script src=static/js/hover.js></script><script src=https://cdn.polyfill.io/v2/polyfill.min.js></script><script src="https://www.sobot.com/chat/frame/js/entrance.js?sysNum=800fcb3a85a54c73b1cd5df006b9be0c" class=zhiCustomBtn , id=zhichiScript data-args="������1=����ֵ1&������2=����ֵ2"></script> <script>window.onload=function(){
+     //初始化智齿咨询组件实例
+    var zhiManager = (getzhiSDKInstance());
+    //再调用load方法
+    zhiManager.on("load", function() {
+    zhiManager.initBtnDOM();
+    });
+    zhiManager.set('customBtn', 'true');
+    zhiManager.set('customMargin',250);
+    zhiManager.set('color','b09a7d');
+    //alert($('#btn').length)
+    //$('.zhiCustomBtn').click();
+
+     window.addEventListener('scroll',function(){ 
+       if($('.maoUl').length==0){
+         return;
+       }
+       var scrollTop=document.documentElement.scrollTop;
+          if(document.documentElement.scrollTop>300){
+              
+              $('.maoUl').addClass('fixmao');
+              // $.res.backTop.style.opacity=1;
+          }else{
+            $('.maoUl').removeClass('fixmao');
+          }
+        
+          if(scrollTop>=450){
+            $('.maoUl li').removeClass('active');
+            $('#nav1').addClass('active');
+          }
+          var top2=$('.nav2').offset().top
+          if(scrollTop>=top2){
+            $('.maoUl li').removeClass('active');
+            $('#nav2').addClass('active');
+          }
+          var top3=$('.nav3').offset().top-100
+           if(scrollTop>=top3){
+             $('.maoUl li').removeClass('active');
+             $('#nav3').addClass('active');
+           }
+           var top4=$('.nav4').offset().top-100
+           if(scrollTop>=top4){
+             $('.maoUl li').removeClass('active');
+             $('#nav4').addClass('active');
+           }
+          
+          
+      })
+
+      $('#app').on('click','.maoUl li',function(){
+        $('.maoUl li').removeClass('active')
+        $(this).addClass('active');//.siblings().removeClass('active')
+        
+      })
+  }</script><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.c04cc399dabd1f95ad01.js></script><script type=text/javascript src=./static/js/app.52fec7a3eec4550f8811.js></script></body></html>

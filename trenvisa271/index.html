@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><title>唐仁国际</title><link rel=stylesheet href="static/css/base.css?updet=1"><link rel=stylesheet href="static/css/common.css?updet=1"><link rel=stylesheet href="static/css/loanresult.css?updet=1"><link rel=stylesheet href="static/css/app.css?updet=1"><link rel=stylesheet href="static/base_1.css?updet=1"><link rel=icon href="./static/img/favicon.ico?updet=1" type=image/x-icon><style>dl, ol, ul{
+      margin-bottom:0!important;
+    }</style><link href=./static/css/app.0c937abd28226fdba1baa3a341e09b36.css rel=stylesheet></head><body><div id=app></div><div><button id=btn class=zhiCustomBtn></button></div><div style=display:none;><script type=text/javascript>var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273126090'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1273126090' type='text/javascript'%3E%3C/script%3E"));</script></div><style>.zhiCustomBtn{
+        position: fixed;
+        top: 392px!important;
+        opacity: 1!important;
+        z-index: 2000!important;
+        right: 5px;
+        width: 70px;
+        height: 70px;
+        background: url(static/img/zixun.png) no-repeat #f4d1b2!important;
+        outline: none!important;
+        cursor: pointer;
+        border-radius: 5px;
+      } 
+      .zhiCustomBtn:hover{
+	      background: url(static/img/zixun_sel.png) no-repeat #f4d1b2!important;
+      }</style><script src=static/js/jquery.js></script><script src=https://cdn.polyfill.io/v2/polyfill.min.js></script><script src="https://www.sobot.com/chat/frame/js/entrance.js?sysNum=800fcb3a85a54c73b1cd5df006b9be0c" class=zhiCustomBtn , id=zhichiScript data-args="������1=����ֵ1&������2=����ֵ2"></script> <script>window.onload=function(){
+     //初始化智齿咨询组件实例
+    var zhiManager = (getzhiSDKInstance());
+    //再调用load方法
+    zhiManager.on("load", function() {
+    zhiManager.initBtnDOM();
+    });
+    zhiManager.set('customBtn', 'true');
+    zhiManager.set('customMargin',250);
+    zhiManager.set('color','b09a7d');
+    //alert($('#btn').length)
+    //$('.zhiCustomBtn').click();
+
+     window.addEventListener('scroll',function(){ 
+       if($('.maoUl').length==0){
+         return;
+       }
+       var scrollTop=document.documentElement.scrollTop;
+          if(document.documentElement.scrollTop>300){
+              
+              $('.maoUl').addClass('fixmao');
+              // $.res.backTop.style.opacity=1;
+          }else{
+            $('.maoUl').removeClass('fixmao');
+          }
+        
+          if($('.nav4').length>0){
+              var top4=$('.nav4').offset().top-100
+              if(scrollTop>=top4){
+                $('.maoUl li').removeClass('active');
+                $('#nav4').addClass('active');
+                return;
+              }
+           }
+           var top3=$('.nav3').offset().top-100
+           if(scrollTop>=top3){
+             $('.maoUl li').removeClass('active');
+             $('#nav3').addClass('active');
+             return;
+           }
+           var top2=$('.nav2').offset().top
+          if(scrollTop>=top2){
+            $('.maoUl li').removeClass('active');
+            $('#nav2').addClass('active');
+            return;
+          }
+
+          if(scrollTop<=450){
+            $('.maoUl li').removeClass('active');
+            $('#nav1').addClass('active');
+            return;
+          }
+        
+        
+          
+         
+           
+          
+          
+      })
+
+      $('#app').on('click','.maoUl p',function(){
+        $('.maoUl p').removeClass('active')
+        $(this).addClass('active');//.siblings().removeClass('active')
+        
+      })
+      $('#app').on('click','.maoUl li',function(){
+        console.log($('.maoUl li').length+'.maoUl li');
+        $('.maoUl li').removeClass('active')
+        //$(this).addClass('active');//.siblings().removeClass('active')
+        console.log($(this).html());
+       // console.log($(this).get(0).className);
+        var mao =$(this).attr('mao');
+        $("body,html").scrollTop($('#'+mao).offset().top);
+        return; 
+        
+      })
+  }</script><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.4585b21aaf60cfd26841.js></script><script type=text/javascript src=./static/js/app.cddb2bc6faca6ed63e36.js></script></body></html>
